@@ -3,7 +3,7 @@ services:
   - docker
 env:
   global:
-    - GIT_SHA:$(git rev-parse HEAD)
+    - GIT_SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
   - openssl aes-256-cbc -K $encrypted_f2999b9fd275_key -iv $encrypted_f2999b9fd275_iv -in multi-k8s-354418-525a44c3bb06.json.enc -out service-account.json -d
