@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+
+kind: Certificate
+metadata:
+  name: skyfood-tech-tls
+spec:
+  secretName: skyfood-tech
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: skyfood.tech
+  dnsNames:
+    - skyfood.tech
+    - www.skyfood.tech
