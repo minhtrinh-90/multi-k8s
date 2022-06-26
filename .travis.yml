@@ -14,7 +14,7 @@ before_install:
   - gcloud config set project multi-k8s-354418
   - gcloud config set compute/zone asia-southeast1-a
   - gcloud container clusters get-credentials multi-cluster
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t trinhno/react-test -f ./client/Dockerfile.dev ./client
 script:
   - docker run -e CI=true trinhno/react-test npm test
